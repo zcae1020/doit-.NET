@@ -11,6 +11,9 @@ namespace doit_study_homework_template
         }
         /********************/
         public void main(){
+            var A = 10;
+            var B = 4;
+
             /* 여기에 코드를 작성하세요 */
         }
     }
