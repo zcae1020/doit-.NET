@@ -10,7 +10,6 @@
 
 ```
 
-![image](https://user-images.githubusercontent.com/46314169/110503076-2d6d6980-813f-11eb-9cb7-7ec5c01c3a92.png)
 
 ## 2번 과제
 
@@ -23,7 +22,6 @@
 
 ```
 
-![image](https://user-images.githubusercontent.com/46314169/110504109-2e52cb00-8140-11eb-9989-a2b01a63cc6b.png)
 ## 3번 과제
 
 ```
@@ -32,3 +30,5 @@
 A + B = 14, A - B = 6, A * B = 40, A / B = 2, A % B = 2
 
 ```
+
+참고: https://docs.microsoft.com/ko-kr/learn/paths/csharp-first-steps/
