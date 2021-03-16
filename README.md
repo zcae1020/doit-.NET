@@ -30,4 +30,6 @@ Ex:) 9,8,7,6,5,4,3,2,1 => 9
 
 ```
 
-참고: https://docs.microsoft.com/ko-kr/learn/paths/csharp-first-steps/
+.Net Laern 참고: https://docs.microsoft.com/ko-kr/learn/paths/csharp-first-steps/
+.Net Learn 참고: https://docs.microsoft.com/ko-kr/learn/paths/csharp-data/
+.Net String 참고: https://docs.microsoft.com/ko-kr/dotnet/api/system.string?view=net-5.0
