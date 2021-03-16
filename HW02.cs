@@ -15,7 +15,7 @@ namespace doit_study_homework_template
             var messages = 3;
             var temperature = 34.4f;
 
-            /* 여기에 코드를 작성하세요 */
+            Console.WriteLine($"Hello, {name}! You have {messages} in your inbox. The temperature is {temperature} celsius.");
         }
     }
 }

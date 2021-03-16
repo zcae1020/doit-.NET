@@ -14,7 +14,7 @@ namespace doit_study_homework_template
             var A = 10;
             var B = 4;
 
-            /* 여기에 코드를 작성하세요 */
+            Console.WriteLine($"A + B = {A+B}, A - B = {A-B}, A * B = {A*B}, A / B = {A/B}, A % B = {A%B}");
         }
     }
 }
