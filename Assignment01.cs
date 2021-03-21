@@ -20,7 +20,12 @@ namespace doit_study_homework_template
                 var num01 = data.num01;
                 var num02 = data.num02;
                 int res = 0;
-                
+                if(num01>num02){
+                    res = num01;
+                }
+                else{
+                    res = num02;
+                }
                 //res에 num01과 num02 중에서 더 큰 값을 저장해주세요.(int 형)
                 //여기에 코드를 작성해주세요.
 

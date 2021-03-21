@@ -23,6 +23,8 @@ namespace doit_study_homework_template
                 //res에 str의 Upper상태를 저장해주세요.
                 //여기에 코드를 작성해주세요.
 
+                res = str.ToUpper();
+
                 results.Add(res);
             }
 
