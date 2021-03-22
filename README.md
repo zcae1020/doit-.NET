@@ -1,12 +1,13 @@
-# 두잇 스터디 2주차 과제
-
+# 두잇 스터디 3주차 과제
 
 
 ## 1번 과제
 
 ```
 
- Num01과 Num02 중에서 더 큰 수를 구하세요.
+ String Array 에서 token(char 1글자)이 포함된 string들을 추출하여 사전순으로 정렬한 후 출력하시오. (string[] 안에는 공백이나 null 값이 들어갈 수 있습니다.)
+ Ex:) token : 'k' , String Array : {"AABB", "AAkk", "kkAA", "ccck", "ASD", "adva", "iadh", "advadn"}
+    => return {"AAkk", "ccck", "kkAA",}
 
 ```
 
@@ -16,17 +17,11 @@
 
 ```
 
- String 내부의 소문자를 대문자로 바꿔주세요.
- Ex:) "heLLo woRld!" => "Hello World!"
-
-```
-
-## 3번 과제
-
-```
-
-numArr에 저장된 정수 중에서 가장 큰 수를 구하세요.
-Ex:) 9,8,7,6,5,4,3,2,1 => 9
+String Array은 "123", "-123"과 같은 String형식으로 저장된 정수 값으로 이루어져 있다.
+String Array 내부의 값을 정수로 변환한 후 2개의 수를 골라 더할 때, 그 값이 가장 작도록 만들고 그 값을 return 하세요.
+Ex:) String Array : {"123", "456", "111", "1", "-2", "33"}
+    => -1
+(String Array의 크기가 2보다 작다면 0을 return 하세요.)
 
 ```
 
