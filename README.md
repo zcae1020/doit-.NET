@@ -25,6 +25,14 @@ Ex:) String Array : {"123", "456", "111", "1", "-2", "33"}
 
 ```
 
-.Net Laern 참고: https://docs.microsoft.com/ko-kr/learn/paths/csharp-first-steps/
+.Net Laern 참고: https://docs.microsoft.com/ko-kr/learn/paths/csharp-logic/
+<br/>
 .Net Learn 참고: https://docs.microsoft.com/ko-kr/learn/paths/csharp-data/
+<br/>
 .Net String 참고: https://docs.microsoft.com/ko-kr/dotnet/api/system.string?view=net-5.0
+<br/>
+.Net Array 참고: https://docs.microsoft.com/ko-kr/dotnet/api/system.array?view=net-5.0
+<br/>
+.Net Convert 참고: https://docs.microsoft.com/ko-kr/dotnet/api/system.convert?view=net-5.0
+<br/>
+.Net List 참고: https://docs.microsoft.com/ko-kr/dotnet/api/system.collections.generic.list-1?view=net-5.0
