@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DoitStudy.Interface;
+using Assignment01Class;
 
 namespace DoitStudy.Testcase
 {
@@ -20,59 +21,44 @@ namespace DoitStudy.Testcase
 
             Console.WriteLine($"Assignment01 결과.");
             for(int i = 0; i < len; i++){
-                var data = (string[])results[i];
+                var data = (Toy[])results[i];
                 var res = cases[i].test(data) ? "O" : "X";
                 Console.WriteLine($"Case 0{i+1} : {res}");
             }
         }
 
         private TestCase[] cases = new TestCase[]{
-                new TestCase('k', new string[] {
-                    "AABB", "AAkk", "kkAA", "ccck", "ASD", "adva", "iadh", "advadn"
-                }),
-                new TestCase('A', new string[]{
-                    "Aavd", "sgoSGFOA", "DFBaa", "aaavfsdv", "SFGJASDFNoA", "NFGSIbdng"
-                }),
-                new TestCase('b', new string[]{
-                    "AQGR", "GOWNGOIRW", "SGOSFGH", "DWQOI", "PODASD", "BDDIO", "MinShiGee" 
-                }),
-                new TestCase('C', new string[]{
-                    "","","","","","CCAccc","CCcc","GFSJSIC","CCcc"
-                }),
-                new TestCase('d', new string[]{
-                    String.Empty, null, "SDdd", "dddd", "SDIOGD", "ddasd", "dddd"
-                })
+                new TestCase(
+                    "Boy 2018 15000\n" +
+                    "Girl 2018 16000\n" +
+                    "Dog 2019 6000\n" +
+                    "Cat 2020 12900"
+                ),
+                new TestCase(
+                    "AAA 2013 12000\n" +
+                    "BBBC 2011 11000\n" +
+                    "DDDD 2012 65000\n" +
+                    "EEEE 2025 12900"
+                )
         };
 
         public class TestCase{
-            public char token { get; private set;}
-            public string[] strArr { get; private set;}
+            public string inputData { get; private set;}
 
-            public TestCase(char _token, string[] _strArr){
-                token = _token;
-                strArr = _strArr;
+            public TestCase(string _inputData){
+                inputData = _inputData;
             }
 
-            internal bool test(string[] resArr){
-
-                List<string> resData = new List<string>();
-                foreach(var temp in strArr){
-                    if(temp == null || temp.Length <= 0)
-                        continue;
-                    if(temp.Contains(token))
-                        resData.Add(temp);
+            internal bool test(Toy[] resArr){
+                
+                string res = "";
+                foreach(var toy in resArr){
+                    res += $"{toy.name} {toy.year} {toy.price}\n";
+                    if(toy.point != (toy.year % 100) * (toy.price / 1000))
+                        return false;
                 }
-                resData.Sort();
-
                 /***** 결과 비교 코드 *****/
-                if(resArr.Length != (resData.ToArray()).Length)
-                    return false;
-                for(int i = 0; i < resArr.Length; i++){
-                    if(resArr[i].Equals(resData[i]))
-                        continue;
-                    return false;                   
-                }
-                return true;
+                return res == inputData + '\n';
                 /****************************/
             }
         }
