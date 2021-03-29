@@ -18,7 +18,7 @@ namespace Assignment01Class
 
         //Method
         public void CalculatePoint(){
-            point = (year%100) * (price/1000);
+            
         }
     }
 }
