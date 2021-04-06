@@ -8,24 +8,30 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\MinShiGee\\.nuget\\packages\\": {}
+    "C:\\Users\\small\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MinShiGee\\Desktop\\doit-study-homework-template\\doit-study-homework-template.csproj",
+      "projectUniqueName": "C:\\Users\\small\\Desktop\\doit-study-homework-template\\doit-study-homework-template.csproj",
       "projectName": "doit-study-homework-template",
-      "projectPath": "C:\\Users\\MinShiGee\\Desktop\\doit-study-homework-template\\doit-study-homework-template.csproj",
-      "packagesPath": "C:\\Users\\MinShiGee\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MinShiGee\\Desktop\\doit-study-homework-template\\obj\\",
+      "projectPath": "C:\\Users\\small\\Desktop\\doit-study-homework-template\\doit-study-homework-template.csproj",
+      "packagesPath": "C:\\Users\\small\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\small\\Desktop\\doit-study-homework-template\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\MinShiGee\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\small\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -58,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
