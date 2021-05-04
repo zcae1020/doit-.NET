@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3W1F/wvARgQXrik5Z0lRyO7hNTdexyDRg0d+hiVFcv8bOFwV0IZWLgmGgGvBPNGX6QTSo5VP5XTjHAkRI+mJNQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\임학범\\Desktop\\doit\\doit-.NET\\5week\\TodoList\\TodoList.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\임학범\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
