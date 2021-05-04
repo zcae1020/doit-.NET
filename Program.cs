@@ -1,29 +1,26 @@
-﻿using System.Linq;
 using System;
 using System.Collections.Generic;
-using DoitStudy.Interface;
-using DoitStudy.Utils;
-using DoitStudy.Assignments;
-using DoitStudy.Testcase;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-namespace DoitStudy
+namespace StudentManager
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-
-            IAssignmentRunning[] assignments = {
-                new AssignmentRunning(new Assignment01(), new TestCase01()), 
-            };
-
-            assignments[0].isRunning = true; //1번 Assignment  // 결과를 보고싶은 과제의 false를 true로 수정하세요
-
-            foreach(var temp in assignments){
-                if(temp.isRunning)
-                    temp.RunCode();
-            }
+            CreateHostBuilder(args).Build().Run();
         }
 
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
