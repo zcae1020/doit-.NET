@@ -1,57 +1,49 @@
 using System.Linq;
 using System;
 using System.Collections.Generic;
-using StudentManager.Data;
-using StudentManager.Data.EnumData;
+using MongoDB.Driver;
+using System.Threading.Tasks;
 using StudentManager.Data.Models;
-using StudentManager.Data.Interfaces;
 
 namespace StudentManager.Data.Services
 {
-    public class TestScoreService : ITestScoreService
+    public class TestScoreService
     {
-        public List<TestScore> scores {get; set;}
+        private readonly IMongoCollection<TestScore> _testScore;
 
-        public TestScoreService(){
-            scores = new List<TestScore>();
-            scores.Add(new TestScore("0001",SubjectId.Korean_Language,82,1801));
-            scores.Add(new TestScore("0001",SubjectId.Programming,98,1801));
+        public TestScoreService(IDatabaseSettings settings){
+            var client = new MongoClient(settings.ConnectionString);
+            var database = client.GetDatabase(settings.DatabaseName);
+
+            _testScore = database.GetCollection<TestScore>(settings.TestScoresCollectionName);
         }
 
-        public List<TestScore> GetScores(){
-            return scores;
+
+        public async Task<List<TestScore>> GetTestScoresAsync() => 
+            await _testScore.Find(st => true).ToListAsync();
+
+        public async Task<TestScore> GetAsync(string id) =>
+            await _testScore.Find<TestScore>(score => score.Id == id).FirstOrDefaultAsync();
+
+
+        public async Task<TestScore> GetByTestScoreIdAsync(string id) =>
+            await _testScore.Find(score => score.scoreId == id).FirstOrDefaultAsync();
+
+        public async Task CreateAsync(TestScore score){
+            await _testScore.InsertOneAsync(score);
         }
 
-        //파라미터의 id와 동일한 scoreId를 갖는 TestScore를 scores에서 찾아 return. 
-        public TestScore GetScoreById(string id){
-            //Code...
-            return default;
-        }
+        public async Task UpdateAsync(string id, TestScore scoreIn) =>
+            await _testScore.ReplaceOneAsync(score => score.Id == id, scoreIn);
 
-        //파라미터의 studentId를 가진 TestScore들을 resList에 Add 하여 return.
-        public List<TestScore> GetScoresByStudentId(string id){
-            
-            var resList = new List<TestScore>();
-            
-            //Code...
-            return default;
+        public async Task RemoveByTestScoreIdAsync(string id){
+            TestScore score = await GetByTestScoreIdAsync(id);
+            await _testScore.DeleteOneAsync(s => s.Id == score.Id);
         }
+        public async Task RemoveAsync(TestScore scoreIn) =>
+            await _testScore.DeleteOneAsync(s => s.Id == scoreIn.Id);
 
-        //파라미터의 testScore 를 scores에 Add하고 new ResultCode()를 생성하여 return.
-        public ResultCode AddTestScore(TestScore testScore){
-            //Code...
-            return default;
-        }
-
-        public ResultCode RemoveTestScoreById(string id){
-            //Code...
-            return default;
-        }
-
-        public ResultCode RemoveTestScoresByStudentId(string id){
-            //Code...
-            return default;
-        }
-
+        public async Task Remove(string id) => 
+            await _testScore.DeleteOneAsync(s => s.Id == id);
     }
 }

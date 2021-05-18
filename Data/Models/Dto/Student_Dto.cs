@@ -6,14 +6,8 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace StudentManager.Data.Models
 {
-    public class Student
+    public class Student_Dto
     {
-        public static string studentDefaultId = "0000";
-
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-
         [Required]
         [StringLength(4)]
         public string studentId{get; set;} = default;
@@ -27,7 +21,7 @@ namespace StudentManager.Data.Models
         public CountryId country{get; set;} = CountryId.Etc;
         public DateTime admissionTime{get; set;} = DateTime.Today;
 
-        public Student(
+        public Student_Dto(
             string studentId,
             string name,
             int age,
@@ -42,14 +36,6 @@ namespace StudentManager.Data.Models
             this.country = country;
             this.admissionTime = admissionTime;
         }
-        public Student(Student_Dto dto){
-            this.studentId = dto.studentId;
-            this.name = dto.name;
-            this.age = dto.age;
-            this.gender = dto.gender;
-            this.country = dto.country;
-            this.admissionTime = dto.admissionTime;
-        }
-
+        public Student_Dto(){}
     }
 }
