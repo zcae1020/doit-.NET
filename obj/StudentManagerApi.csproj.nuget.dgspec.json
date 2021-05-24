@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MinShiGee\\Desktop\\StudentManagerApi\\StudentManagerApi.csproj": {}
+    "C:\\Users\\임학범\\Desktop\\doit\\doit-.NET\\8week\\doit-study-homework-template\\StudentManagerApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MinShiGee\\Desktop\\StudentManagerApi\\StudentManagerApi.csproj": {
+    "C:\\Users\\임학범\\Desktop\\doit\\doit-.NET\\8week\\doit-study-homework-template\\StudentManagerApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MinShiGee\\Desktop\\StudentManagerApi\\StudentManagerApi.csproj",
+        "projectUniqueName": "C:\\Users\\임학범\\Desktop\\doit\\doit-.NET\\8week\\doit-study-homework-template\\StudentManagerApi.csproj",
         "projectName": "StudentManagerApi",
-        "projectPath": "C:\\Users\\MinShiGee\\Desktop\\StudentManagerApi\\StudentManagerApi.csproj",
-        "packagesPath": "C:\\Users\\MinShiGee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MinShiGee\\Desktop\\StudentManagerApi\\obj\\",
+        "projectPath": "C:\\Users\\임학범\\Desktop\\doit\\doit-.NET\\8week\\doit-study-homework-template\\StudentManagerApi.csproj",
+        "packagesPath": "C:\\Users\\임학범\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\임학범\\Desktop\\doit\\doit-.NET\\8week\\doit-study-homework-template\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MinShiGee\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\임학범\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -71,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
