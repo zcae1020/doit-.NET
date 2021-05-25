@@ -1,0 +1,138 @@
+﻿@page "/studentinfo"
+
+@using System.Net.Http
+@using System.Net.Http.Json
+
+@inject IStudentService studentService
+@inject ITestScoreService testScoreService
+@inject IJSRuntime jsRuntime
+@inject HttpClient http
+
+<h3><b>Enter Student Information</b></h3>
+<br/>
+<div>
+    <EditForm Model="@student" OnValidSubmit="@SubmitStudent">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">*Student Id : </label>
+            <InputText id="studentId" @bind-Value="student.studentId" placeholder="Student Id"/>
+        </div>
+        <br/>
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">*Student Name : </label>
+            <InputText id="studentName" @bind-Value="student.name" placeholder="Student Name"/>
+        </div>
+        <br/>
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">*Student Age : </label>
+            <InputNumber id="studentage" @bind-Value="student.age" placeholder="Student Age"/>
+        </div>
+        <br/>
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">*Student Gender : </label>
+            <InputSelect id="studentGender" @bind-Value="student.gender">
+                @foreach (var gender in Enum.GetValues(typeof(GenderId)))
+                {
+                    <option value="@gender">@gender</option>
+                }
+            </InputSelect> 
+        </div>
+        <br/>
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Student Country : </label>
+            <InputSelect id="studentCountry" @bind-Value="student.country">
+                @foreach (var country in Enum.GetValues(typeof(CountryId)))
+                {
+                    <option value="@country">@country</option>
+                }
+            </InputSelect> 
+        </div>
+        <br/>
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Student AdmissionTime : </label>
+            <InputDate id="studenDate" @bind-Value="student.admissionTime"/>
+        </div>
+        <br/>
+        <div class="col-12 row">
+            <span class="col-2"></span>
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Save" />
+            <span>&nbsp;</span>
+            <button class="btn btn-primary" @onclick="ClearStudent">Clear</button>
+        </div>
+    </EditForm>
+</div>
+
+<br/>
+<hr/>
+<br/>
+
+<div class="col-10">
+    <h3><b>Students</b></h3>
+    <br/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Country</th>
+                <th>Admission Time</th>
+                <th>Etc..</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var _student in studentsList)
+            {
+                var link = $"/testscoreinfo/{_student.studentId}";
+                <tr>
+                    <td>
+                        <NavLink href="@link">
+                            @_student.studentId
+                        </NavLink>
+                    </td>
+                    <td>@_student.name</td>
+                    <td>@_student.age</td>
+                    <td>@Enum.GetName(_student.gender)</td>
+                    <td>@Enum.GetName(_student.country)</td>
+                    <td>@_student.admissionTime.ToString("yyyy-MM-dd")</td>
+                    <td> <button class="btn btn-primary" @onclick="() => RemoveStudent(_student.studentId)">Remove</button> </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+@code {
+    public Student student{get; set;}
+    public List<Student> studentsList = default;
+    protected override async Task OnInitializedAsync()
+    {
+        student = new Student();
+        studentsList = new List<Student>();
+
+        studentsList = await http.GetFromJsonAsync<List<Student>>("https://localhost:5001/api/students");
+        studentsList = studentsList.OrderByDescending(student => student.studentId).ToList();
+
+        await base.OnInitializedAsync();
+    }
+    private async Task SubmitStudent(){
+
+        //Form에 작성된 Student student를 API에 요청하여 Create하기. 
+
+        return;
+    }
+    private void ClearStudent(){
+        student = new Student();
+    }
+    private async Task RemoveStudent(string id){
+        // API에 studentId의 Student를 제거하는 메소드를 구현.
+    }
+    private async void PrintDescriptionAsync(ResultCode code){
+        await jsRuntime.InvokeVoidAsync("alert", $"{code.id}\n{code.description}!");
+    }
+
+}
