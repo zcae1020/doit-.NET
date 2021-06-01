@@ -109,6 +109,7 @@
 @code {
     public Student student{get; set;}
     public List<Student> studentsList = default;
+
     protected override async Task OnInitializedAsync()
     {
         student = new Student();
@@ -120,7 +121,8 @@
         await base.OnInitializedAsync();
     }
     private async Task SubmitStudent(){
-
+        await http.PostAsJsonAsync<Student>("https://localhost:5001/api/students", student);
+        ClearStudent();
         //Form에 작성된 Student student를 API에 요청하여 Create하기. 
 
         return;
@@ -129,6 +131,7 @@
         student = new Student();
     }
     private async Task RemoveStudent(string id){
+        await http.DeleteAsync($"https://localhost:5001/api/students/{id}");
         // API에 studentId의 Student를 제거하는 메소드를 구현.
     }
     private async void PrintDescriptionAsync(ResultCode code){

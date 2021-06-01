@@ -36,6 +36,5 @@ namespace StudentManager.Data.Models
             this.admissionTime = admissionTime;
         }
         public Student(){}
-
     }
 }

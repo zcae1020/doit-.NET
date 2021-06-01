@@ -105,7 +105,7 @@
         studentsList = studentsList.OrderByDescending(student => student.studentId).ToList();
 
         testScoresList = await http.GetFromJsonAsync<List<TestScore>>("https://localhost:5001/api/TestScores");
-
+        testScoresList = testScoresList.OrderByDescending(testScore => testScore.scoreId).ToList();
         // API testScoresList와 studentsList에 각각 List데이터를 요청하고 저장하는 메소드를 구현. 
 
         await base.OnInitializedAsync();
@@ -113,17 +113,16 @@
     private async Task SubmitTestScore(){
         
         // API에 TestScore testScore를 Create하는 메소드를 구현.
-
-        testScore = new TestScore("0000", SubjectId.Etc, 0, 1901);
+        await http.PostAsJsonAsync<TestScore>("https://localhost:5001/api/TestScores", testScore);
+        ClearTestScore();
         return;
     }
     private void ClearTestScore(){
         testScore = new TestScore("0000", SubjectId.Etc, 0, 1901);
     }
     private async Task RemoveTestScore(string id){
-
+        await http.DeleteAsync($"https://localhost:5001/api/TestScores/{id}");
         // API에 scoreId의 TestScore를 제거하는 메소드를 구현.
-
     }
     private async void PrintDescriptionAsync(ResultCode code){
         await jsRuntime.InvokeVoidAsync("alert", $"{code.id}\n{code.description}!");

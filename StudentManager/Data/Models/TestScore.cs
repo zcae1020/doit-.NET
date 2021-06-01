@@ -35,6 +35,6 @@ namespace StudentManager.Data.Models
             this.score = score;
             this.semester = semester;
         }
-
+        public TestScore(){}
     }
 }
